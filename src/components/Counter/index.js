@@ -1,5 +1,21 @@
+import {useEffect} from 'react';
+
 function Counter(props) {
   const { counter, setCounter } = props;
+
+  //Runs first time and everytime component re renders
+  // useEffect(() => {
+  //   console.log("Component renders")
+  // })
+
+  //Runs only first time when component mounts
+  // useEffect(() => {
+  //   console.log("Component renders")
+  // }, [])
+
+  // useEffect(() => {
+  //   console.log("Component renders")
+  // }, [counter]);
 
   const handleCounterUp = () => {
     setCounter((prev) => prev + 1);

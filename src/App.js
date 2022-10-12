@@ -1,5 +1,5 @@
 import Counter from "./components/Counter";
-import Todo from "./components/Todo";
+import Todo from "./containers/Todo";
 import { useState } from "react";
 
 function App() {
@@ -12,5 +12,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
