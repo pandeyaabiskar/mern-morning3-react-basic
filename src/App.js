@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Counter counter={counter} setCounter={setCounter} />
+      {/* <Counter counter={counter} setCounter={setCounter} /> */}
       <Todo />
     </>
   );
