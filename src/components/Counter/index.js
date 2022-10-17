@@ -1,38 +1,28 @@
-import {useEffect} from 'react';
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from '../../store/slices/counterSlice'
 
-function Counter(props) {
-  const { counter, setCounter } = props;
-
-  //Runs first time and everytime component re renders
-  // useEffect(() => {
-  //   console.log("Component renders")
-  // })
-
-  //Runs only first time when component mounts
-  // useEffect(() => {
-  //   console.log("Component renders")
-  // }, [])
-
-  // useEffect(() => {
-  //   console.log("Component renders")
-  // }, [counter]);
-
-  const handleCounterUp = () => {
-    setCounter((prev) => prev + 1);
-  };
-
-  const handleCounterDown = () => {
-    setCounter((prev) => prev - 1);
-  };
+export default function Counter() {
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
 
   return (
-    <>
-      <h1>Counter</h1>
-      <button onClick={handleCounterUp}>Increment</button>
-      <h2>{counter}</h2>
-      <button onClick={handleCounterDown}>Decrement</button>
-    </>
-  );
+    <div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
+    </div>
+  )
 }
-
-export default Counter;
